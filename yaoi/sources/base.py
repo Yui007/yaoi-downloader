@@ -1,0 +1,19 @@
+"""The source contract. Adapters are small and replaceable."""
+
+from __future__ import annotations
+
+from typing import Protocol
+
+from ..models import ChapterGroup, PageRef, Series, SeriesCard, Variant
+
+
+class Source(Protocol):
+    id: str
+    name: str
+
+    def search(self, query: str, limit: int = 24) -> list[SeriesCard]: ...
+    def trending(self, limit: int = 24) -> list[SeriesCard]: ...
+    def latest(self, limit: int = 24) -> list[SeriesCard]: ...
+    def series(self, url: str) -> Series: ...
+    def chapters(self, series: Series) -> list[ChapterGroup]: ...
+    def pages(self, group: ChapterGroup, variant: Variant) -> list[PageRef]: ...

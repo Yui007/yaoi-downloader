@@ -1,0 +1,21 @@
+# Local state
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+settings.json
+settings.json.bad
+keys.json
+cache/
+downloads/
+library/
+logs/
+*.part
+
+# Local design notes
+docs/
+
+# Build
+build/
+dist/
+*.egg-info/
